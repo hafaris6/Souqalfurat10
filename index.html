@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سوق الفرات</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>سوق الفرات</h1>
+        <p>أهلاً بكم في سوق الفرات. ستجدون هنا كل ما تحتاجونه: ألبسة، أحذية، مكياجات، إكسسوارات، أدوات منزلية.</p>
+    </header>
+    
+    <section id="governorates">
+        <h2>اختر المحافظة</h2>
+        <select id="governorateSelect">
+            <option>دمشق</option>
+            <option>ريف دمشق</option>
+            <option>حلب</option>
+            <option>حمص</option>
+            <option>حماة</option>
+            <option>اللاذقية</option>
+            <option>طرطوس</option>
+            <option>درعا</option>
+            <option>السويداء</option>
+            <option>دير الزور</option>
+            <option>الرقة</option>
+            <option>الحسكة</option>
+            <option>إدلب</option>
+        </select>
+    </section>
+
+    <section id="addProduct">
+        <h2>أضف منتجك</h2>
+        <input type="text" id="productName" placeholder="اسم المنتج"><br>
+        <input type="number" id="productPrice" placeholder="السعر"><br>
+        <input type="text" id="whatsappNumber" placeholder="رقم واتساب مع رمز الدولة"><br>
+        <input type="file" id="productImage"><br>
+        <button onclick="uploadProduct()">أضف المنتج</button>
+    </section>
+
+    <section id="productsList"></section>
+
+    <footer>
+        <p>رقم خدمة العملاء: +1 (844) 580‑4018</p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
