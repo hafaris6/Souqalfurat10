@@ -1,54 +1,147 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سوق الفرات</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>سوق الفرات</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0; padding: 0;
+      direction: rtl;
+      text-align: center;
+      color: #333;
+    }
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 1.5em;
+    }
+    header h1 {
+      margin: 0 0 0.5em 0;
+    }
+    section {
+      background: white;
+      max-width: 500px;
+      margin: 1.5em auto;
+      padding: 1.5em;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 0;
+      color: #007bff;
+    }
+    select, input[type=text], input[type=number], input[type=file] {
+      width: 90%;
+      padding: 0.6em;
+      margin: 0.5em 0 1em 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+    button {
+      background-color: #25d366;
+      color: white;
+      border: none;
+      padding: 0.7em 2em;
+      border-radius: 5px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #1ebe5d;
+    }
+    #productsList {
+      max-width: 500px;
+      margin: 2em auto;
+      text-align: right;
+    }
+    .product-card {
+      background: #e9ecef;
+      margin-bottom: 1em;
+      padding: 1em;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 1em;
+    }
+    .product-card img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .product-info {
+      flex: 1;
+      text-align: right;
+    }
+    .whatsapp-link {
+      background-color: #25d366;
+      color: white;
+      padding: 0.3em 0.7em;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9em;
+      white-space: nowrap;
+    }
+    footer {
+      margin: 3em 0 1em 0;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>سوق الفرات</h1>
-        <p>أهلاً بكم في سوق الفرات. ستجدون هنا كل ما تحتاجونه: ألبسة، أحذية، مكياجات، إكسسوارات، أدوات منزلية.</p>
-    </header>
-    
-    <section id="governorates">
-        <h2>اختر المحافظة</h2>
-        <select id="governorateSelect">
-            <option>دمشق</option>
-            <option>ريف دمشق</option>
-            <option>حلب</option>
-            <option>حمص</option>
-            <option>حماة</option>
-            <option>اللاذقية</option>
-            <option>طرطوس</option>
-            <option>درعا</option>
-            <option>السويداء</option>
-            <option>دير الزور</option>
-            <option>الرقة</option>
-            <option>الحسكة</option>
-            <option>إدلب</option>
-        </select>
-    </section>
+  <header>
+    <h1>سوق الفرات</h1>
+    <p>أهلاً بكم في سوق الفرات. ستجدون هنا كل ما تحتاجونه: ألبسة، أحذية، مكياجات، إكسسوارات، أدوات منزلية.</p>
+  </header>
 
-    <section id="addProduct">
-        <h2>أضف منتجك</h2>
-        <input type="text" id="productName" placeholder="اسم المنتج"><br>
-        <input type="number" id="productPrice" placeholder="السعر"><br>
-        <input type="text" id="whatsappNumber" placeholder="رقم واتساب مع رمز الدولة"><br>
-        <input type="file" id="productImage"><br>
-        <button onclick="uploadProduct()">أضف المنتج</button>
-    </section>
+  <section id="governorates">
+    <h2>اختر المحافظة</h2>
+    <select id="governorateSelect">
+      <option>دمشق</option>
+      <option>ريف دمشق</option>
+      <option>حلب</option>
+      <option>حمص</option>
+      <option>حماة</option>
+      <option>اللاذقية</option>
+      <option>طرطوس</option>
+      <option>درعا</option>
+      <option>السويداء</option>
+      <option>دير الزور</option>
+      <option>الرقة</option>
+      <option>الحسكة</option>
+      <option>إدلب</option>
+    </select>
+  </section>
 
-    <section id="productsList"></section>
+  <section id="addProduct">
+    <h2>أضف منتجك</h2>
+    <input type="text" id="productName" placeholder="اسم المنتج" />
+    <input type="number" id="productPrice" placeholder="السعر" />
+    <input type="text" id="whatsappNumber" placeholder="رقم واتساب مع رمز الدولة (مثلاً 9639xxxxxxxx)" />
+    <input type="file" id="productImage" accept="image/*" />
+    <button onclick="uploadProduct()">أضف المنتج</button>
+  </section>
 
-    <footer>
-        <p>رقم خدمة العملاء: +1 (844) 580‑4018</p>
-    </footer>
+  <section id="productsList"></section>
 
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
-    <script src="script.js"></script>
+  <footer>
+    <p>رقم خدمة العملاء: +1 (844) 580‑4018</p>
+  </footer>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-storage-compat.js"></script>
+  
+  <!-- ملف الجافاسكريبت -->
+  <script src="script.js"></script>
 </body>
 </html>
