@@ -3,7 +3,7 @@ name: Firebase Hosting CI
 on:
   push:
     branches:
-      - main  # غيّر هذا إلى الفرع الذي تستخدمه إذا مختلف
+      - main  #
 
 jobs:
   build_and_deploy:
